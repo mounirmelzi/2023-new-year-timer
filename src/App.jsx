@@ -3,7 +3,13 @@ import Loading from "./components/Loading";
 import CounterCard from "./components/CounterCard";
 import FireworksAnimation from "./components/FireworksAnimation";
 
-const TARGET_DATE = new Date(2023, 11, 31, 0, 0, 0);
+// this code is for testing purposes only
+const TARGET_DATE = new Date();
+TARGET_DATE.setSeconds(TARGET_DATE.getSeconds() + 4);
+//
+
+// this is the real code
+// const TARGET_DATE = new Date(2022, 11, 31, 0, 0, 0); // 2023 new year date
 
 const getTimeDelta = () => {
   const currentDate = new Date();
@@ -19,7 +25,7 @@ const getTimeDelta = () => {
   return { days, hours, minutes, seconds };
 };
 
-function Counter() {
+function App() {
   const [count, setCount] = useState();
   const [loading, setLoading] = useState(true);
   const [isNewyear, setIsNewyear] = useState(false);
@@ -40,7 +46,6 @@ function Counter() {
   if (loading) return <Loading />;
 
   if (isNewyear) return <FireworksAnimation />;
-  if (true) return <FireworksAnimation />;
 
   return (
     <div className="w-[100vw] h-[100vh]">
@@ -58,4 +63,4 @@ function Counter() {
   );
 }
 
-export default Counter;
+export default App;
